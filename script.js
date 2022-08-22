@@ -3,6 +3,8 @@ var current = $("#currentDay");
 // Moment.js
 var currentDate = moment().format('MMMM Do YYYY');
 var currentHour = moment().format('h:mm a');
+var hour = moment().hours();
+console.log(hour);
 // Text hour var
 var nineAm = $("#9am");
 var tenAm = $("#10am");
@@ -28,7 +30,8 @@ function currentDay()
 currentDay();
 
 //anything already in local storage print to rows
-function printSaves() {
+function printSaves() 
+{
 
     var print9 = JSON.parse(localStorage.getItem("09:00 am"));
     nineAm.val(print9);
@@ -52,7 +55,7 @@ function printSaves() {
     threePm.val(print3);
    
     var print4 = JSON.parse(localStorage.getItem("04:00 pm"))
-    fourPm.val(init4);
+    fourPm.val(print4);
     
     var print5 = JSON.parse(localStorage.getItem("05:00 pm"))
     fivePm.val(print5);
@@ -65,7 +68,8 @@ function printSaves() {
   } 
 
   // Event listener to add items to localStorage
-  $(".saveBtn").on("click", function(){
+  $(".saveBtn").on("click", function()
+  {
     //value entered into text box
     eventEntered = $(this).siblings(".form-control").val().trim();
     //which hour text box it was entered into
@@ -75,3 +79,28 @@ function printSaves() {
   })
 
   printSaves();
+
+  //changing class of CSS based on current hour
+  function setHourColor()
+  {
+    // for each hour
+    $(".form-control").each(function () 
+    {
+        //DIV ID of the hour we are currently looking at
+        var timeDivID = parseInt($(this).attr("id"));
+        //current hour
+        hour = parseInt(hour);
+        // if hour is greater than ID of current DIV ID, is in past - add class to change color
+        if (hour > timeDivID ) {
+            $(this).addClass("past");
+        // if hour is less than ID of current DIV ID, is in future - add class to change color
+        } else if (hour < timeDivID ) {
+            $(this).addClass("future");
+        //else is now - add class to change color
+        } else {
+            $(this).addClass("present");
+        }
+    });
+  }
+
+  setHourColor();

@@ -17,6 +17,7 @@ THEN I am presented with timeblocks for standard business hours
 
 WHEN I view the timeblocks for that day
 THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+<!-- Done -->
 
 WHEN I click into a timeblock
 THEN I can enter an event
@@ -44,7 +45,8 @@ SO THAT I can manage my time effectively
 
 The following image shows the web application's appearance and functionality:
 
-Coming Soon!
+![Website preview](mockup.JPG)
+![Website preview](mockup2.JPG)
 
 #### Live Link
 
