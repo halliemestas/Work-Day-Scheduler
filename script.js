@@ -1,38 +1,24 @@
 //Global Varaible for currentDay div
 var current = $("#currentDay");
+// Moment.js
+var currentDate = moment().format('MMMM Do YYYY');
+var currentHour = moment().format('h:mm a');
+// Text hour var
+var nineAm = $("#9am");
+var tenAm = $("#10am");
+var elevenAm = $("#11am");
+var twelvePm = $("#12pm");
+var onePm = $("#13pm");
+var twoPm = $("#14pm");
+var threePm = $("#15pm");
+var fourPm = $("#16pm");
+var fivePm = $("#17pm");
+var sixPm = $("#18pm");
+var sevenPm = $("#19pm");
 //append date to div
 function currentDay()
 {
-    var fullDate = new Date();
-    var month = fullDate.getMonth();
-    if(month === 0)
-        month = "January";
-    else if (month === 1)
-        month = "February";
-    else if (month === 2)
-        month = "March";
-    else if (month === 3)
-        month = "April";
-    else if (month === 4)
-        month = "May";
-    else if (month === 5)
-        month = "June";
-    else if (month === 6)
-        month = "July";
-    else if (month === 7)
-        month = "August";
-    else if (month === 8)
-        month = "September";
-    else if (month === 9)
-        month = "October";
-    else if (month === 10)
-        month = "November";
-    else 
-        month = "December";
-    var day = fullDate.getDate();
-    var year = fullDate.getFullYear();
-    console.log(month + " " + day + " " + year);
-    current.append(month + " " + day + " " + year);
+    current.append(currentDate);
 }
 //run to page
 currentDay();
