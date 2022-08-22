@@ -50,4 +50,4 @@ The following image shows the web application's appearance and functionality:
 
 #### Live Link
 
-Coming soon!
+https://halliemestas.github.io/Work-Day-Scheduler/
